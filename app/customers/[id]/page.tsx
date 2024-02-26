@@ -1,5 +1,5 @@
 import Image from "next/image";
-import prisma from "@/utils/db";
+import prisma, { TCustomer, TMembership } from "@/utils/db";
 import { Card } from "@/components/Card";
 import Link from "next/link";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
@@ -22,7 +22,7 @@ const getCustomer = async (id: string) => {
 const Customer = async ({ params }: CustomerProps) => {
   const response = await getCustomer(params.id);
   const customer = response.data;
-  const memberships = customer.memberships;
+  const memberships: TMembership[] = customer.memberships;
   const tableCellClass = "text-left border-r p-3";
 
   return (
@@ -98,7 +98,7 @@ const Customer = async ({ params }: CustomerProps) => {
                 </tr>
               </thead>
               <tbody>
-                {memberships.map((membership, index) => {
+                {memberships.map((membership, index: number) => {
                   const membershipLength = memberships.length;
                   const currentIndex = index + 1;
                   const rowClass = `border-b ${
