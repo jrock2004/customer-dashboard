@@ -1,9 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
 }
 
 datasource db {
@@ -12,27 +8,27 @@ datasource db {
 }
 
 model Customer {
-  id Int @id @default(autoincrement())
-  firstName String
-  lastName String
-  email String @unique
-  phone String
-  imgUrl String?
-  initials String
+  id          Int          @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String       @unique
+  phone       String
+  imgUrl      String?
+  initials    String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
   memberships Membership[]
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
 }
 
 model Membership {
-  id Int @id @default(autoincrement())
-  title String
-  count Int
-  totalCount Int
+  id          Int      @id @default(autoincrement())
+  title       String
+  count       Int
+  totalCount  Int
   description String
-  price String
-  member Customer @relation(fields: [memberId], references: [id])
-  memberId Int
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
+  price       String
+  memberId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  member      Customer @relation(fields: [memberId], references: [id])
 }

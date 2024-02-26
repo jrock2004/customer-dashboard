@@ -1,5 +1,5 @@
 import Link from "next/link";
-import prisma, { TCustomer } from "@/utils/db";
+import prisma from "@/utils/db";
 
 const getAllCustomers = async () => {
   const customers = await prisma.customer.findMany();
@@ -28,7 +28,7 @@ const Customers = async () => {
             </tr>
           </thead>
           <tbody>
-            {customers.data.map((customer: TCustomer, index: number) => {
+            {customers.data.map((customer, index) => {
               const customersLength = customers.data.length;
               const currentIndex = index + 1;
               const rowClass = `border-b ${
