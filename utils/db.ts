@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-// import type { Customer as CustomerProps, Membership as MembershipProps } from "@prisma/client";
+import type * as Prisma from "@prisma/client";
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
@@ -15,9 +15,5 @@ export default prisma;
 
 if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
 
-export type {
-  Customer as TCustomer,
-  Membership as TMembership,
-} from "@prisma/client";
-// export type Customer = CustomerProps;
-// export type Membership = MembershipProps;
+export type TCustomer = Prisma.Customer;
+export type TMembership = Prisma.Membership;
