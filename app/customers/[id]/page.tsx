@@ -116,7 +116,9 @@ const Customer = async ({ params }: CustomerProps) => {
                         {membership.description}
                       </td>
                       <td className={tableCellClass}>{formatPrice}</td>
-                      <td className={`${tableCellClass} border-r-0`}>0/0</td>
+                      <td className={`${tableCellClass} border-r-0`}>
+                        {membership.count}/{membership.totalCount}
+                      </td>
                     </tr>
                   );
                 })}
