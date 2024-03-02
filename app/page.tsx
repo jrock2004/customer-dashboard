@@ -9,12 +9,12 @@ const Home = () => {
         but some of them
       </p>
       <div>
-        <h2 className="font-semibold mb-3">Good Sources</h2>
+        <h2 className="mb-3 font-semibold">Good Sources</h2>
         <p className="mb-8">
           Here are some helpful places to get help in understanding NextJS and
           its coolness
         </p>
-        <ul className="list-disc list-inside">
+        <ul className="list-inside list-disc">
           <li className="ml-4">
             <Link
               href="https://nextjs.org/docs/getting-started"
