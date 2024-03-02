@@ -5,7 +5,7 @@ const About = () => {
 
   return (
     <div className="flex flex-col">
-      <h2 className="text-xl font-semibold mb-3">About</h2>
+      <h2 className="mb-3 text-xl font-semibold">About</h2>
       <p className="mb-8">
         Welcome to our Customer Dashboard! We&apos;re thrilled to have you on
         board and excited to provide you with an overview of what we&apos;re all
@@ -28,10 +28,10 @@ const About = () => {
             orders to accessing support, our dashboard puts everything you need
             right at your fingertips.
           </p>
-          <h3 className="text-md font-semibold mt-6 ml-4 mb-1">
+          <h3 className="text-md mb-1 ml-4 mt-6 font-semibold">
             Key Features:
           </h3>
-          <ol className="list-decimal list-inside ml-4">
+          <ol className="ml-4 list-inside list-decimal">
             <li className={liClassNames}>
               <span className="font-bold">Order Tracking:</span> Keep tabs on
               your orders in real-time, from processing to delivery.

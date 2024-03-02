@@ -29,24 +29,24 @@ const Customer = async ({ params }: CustomerProps) => {
     <div className="flex space-x-10">
       <div className="flex flex-col space-y-10">
         <Card>
-          <div className="max-w-48 flex flex-col">
+          <div className="flex max-w-48 flex-col">
             {customer.imgUrl ? (
               <Image
-                className="w-36 h-36 rounded-full self-center"
+                className="h-36 w-36 self-center rounded-full"
                 width={128}
                 height={128}
                 src={customer.imgUrl}
                 alt={`${customer.firstName} ${customer.lastName}`}
               />
             ) : (
-              <div className="bg-orange-300 w-36 h-36 rounded-full relative self-center">
-                <span className="absolute top-6 left-2.5 text-8xl text-white tracking-wide">
+              <div className="relative h-36 w-36 self-center rounded-full bg-orange-300">
+                <span className="absolute left-2.5 top-6 text-8xl tracking-wide text-white">
                   {customer.initials}
                 </span>
               </div>
             )}
             <div>
-              <span className="block text-center mt-8 font-semibold text-lg text-ellipsis overflow-hidden text-nowrap whitespace-nowrap">
+              <span className="mt-8 block overflow-hidden text-ellipsis whitespace-nowrap text-nowrap text-center text-lg font-semibold">
                 {customer.firstName} {customer.lastName}
               </span>
             </div>
@@ -76,17 +76,17 @@ const Customer = async ({ params }: CustomerProps) => {
         </Card>
         <div className="mt-20 flex justify-center">
           <Link
-            className="text-orange-400 border px-4 py-3 flex hover:bg-orange-400 hover:text-white"
+            className="flex border px-4 py-3 text-orange-400 hover:bg-orange-400 hover:text-white"
             href="/customers"
           >
-            <ChevronLeftIcon className="h-5 w-5 text-inherit self-center mr-3" />
+            <ChevronLeftIcon className="mr-3 h-5 w-5 self-center text-inherit" />
             Back to Customers
           </Link>
         </div>
       </div>
       <div className="w-full">
         <div>
-          <h2 className="font-semibold text-lg mb-4">Active Memberships</h2>
+          <h2 className="mb-4 text-lg font-semibold">Active Memberships</h2>
           {memberships.length > 0 ? (
             <table className="w-full border border-orange-400">
               <thead>

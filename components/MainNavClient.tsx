@@ -17,7 +17,7 @@ export const MainNavClient = () => {
   const iconEndClasses = "h-4 w-4 ml-auto text-inherit self-center";
 
   return (
-    <nav className="flex flex-col w-52 pt-8 bg-gray-100 border-r border-orange-300">
+    <nav className="flex w-52 flex-col border-r border-orange-300 bg-gray-100 pt-8">
       <Link
         href="/"
         className={`${linkClasses}${pathname === "/" ? " font-semibold" : ""}`}
