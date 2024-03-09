@@ -15,7 +15,12 @@ const Customers = async () => {
 
   return (
     <div className="flex flex-col space-y-3">
-      <h1 className="text-xl font-semibold">Customers</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl font-semibold">Customers</h1>
+        <button className="rounded-md bg-orange-400 px-3 py-2 text-white">
+          <Link href="/customers/add">Add Customer</Link>
+        </button>
+      </div>
       <div>
         <table className="w-full border border-orange-400">
           <thead>
