@@ -10,7 +10,9 @@ const getCustomer = async (id: string) => {
       id: parseInt(id),
     },
     include: {
-      memberships: true,
+      memberships: {
+        include: { membership: true },
+      },
     },
   });
 
@@ -77,7 +79,7 @@ const Customer = async ({ params }: CustomerProps) => {
         <div className="mt-20 flex justify-center">
           <Link
             className="flex border px-4 py-3 text-orange-400 hover:bg-orange-400 hover:text-white"
-            href="/customers"
+            href="/CustomersClient"
           >
             <ChevronLeftIcon className="mr-3 h-5 w-5 self-center text-inherit" />
             Back to Customers
@@ -107,17 +109,20 @@ const Customer = async ({ params }: CustomerProps) => {
                   const formatPrice = new Intl.NumberFormat("en-US", {
                     style: "currency",
                     currency: "USD",
-                  }).format(+membership.price);
+                  }).format(+membership.membership.price);
 
                   return (
                     <tr key={membership.id} className={rowClass}>
-                      <td className={tableCellClass}>{membership.title}</td>
                       <td className={tableCellClass}>
-                        {membership.description}
+                        {membership.membership.title}
+                      </td>
+                      <td className={tableCellClass}>
+                        {membership.membership.description}
                       </td>
                       <td className={tableCellClass}>{formatPrice}</td>
                       <td className={`${tableCellClass} border-r-0`}>
-                        {membership.count}/{membership.totalCount}
+                        {membership.remaining}/
+                        {membership.membership.totalCount}
                       </td>
                     </tr>
                   );

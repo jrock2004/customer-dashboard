@@ -32,6 +32,7 @@ export const ClientCustomerList = () => {
                   <th className={theadClass}>Last Name</th>
                   <th className={theadClass}>Email</th>
                   <th className={theadClass}>Phone</th>
+                  <th className={theadClass}>Membership Count</th>
                   <th className={`${theadClass} w-28 border-r-0`}>Actions</th>
                 </tr>
               </thead>
@@ -49,6 +50,9 @@ export const ClientCustomerList = () => {
                       <td className={theadClass}>{customer.lastName}</td>
                       <td className={theadClass}>{customer.email}</td>
                       <td className={theadClass}>{customer.phone}</td>
+                      <td className={theadClass}>
+                        {customer.memberships.length}
+                      </td>
                       <td
                         className={`${theadClass} flex w-28 space-x-3 border-r-0`}
                       >
