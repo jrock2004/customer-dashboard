@@ -2,7 +2,16 @@ import Link from "next/link";
 import prisma from "@/utils/db";
 
 const getAllCustomers = async () => {
-  const customers = await prisma.customer.findMany();
+  const customers = await prisma.customer.findMany({
+    include: {
+      memberships: true,
+    },
+    orderBy: {
+      id: "asc",
+    },
+  });
+
+  console.log(customers);
 
   return {
     data: customers,
@@ -29,6 +38,7 @@ const Customers = async () => {
               <th className={theadClass}>Last Name</th>
               <th className={theadClass}>Email</th>
               <th className={theadClass}>Phone</th>
+              <th className={theadClass}>Membership Count</th>
               <th className={`${theadClass} w-28 border-r-0`}>Actions</th>
             </tr>
           </thead>
@@ -46,6 +56,7 @@ const Customers = async () => {
                   <td className={theadClass}>{customer.lastName}</td>
                   <td className={theadClass}>{customer.email}</td>
                   <td className={theadClass}>{customer.phone}</td>
+                  <td className={theadClass}>{customer.memberships.length}</td>
                   <td
                     className={`${theadClass} flex w-28 space-x-3 border-r-0`}
                   >
