@@ -23,6 +23,7 @@ const Add = async () => {
           <div className="flex flex-col">
             <label htmlFor="firstName">First Name</label>
             <input
+              required
               type="text"
               id="firstName"
               name="firstName"
@@ -32,6 +33,7 @@ const Add = async () => {
           <div className="flex flex-col">
             <label htmlFor="lastName">Last Name</label>
             <input
+              required
               type="text"
               id="lastName"
               name="lastName"
@@ -41,8 +43,10 @@ const Add = async () => {
           <div className="flex flex-col">
             <label htmlFor="initials">Initials</label>
             <input
+              required
               type="text"
               id="initials"
+              maxLength={2}
               name="initials"
               className="border border-orange-400 p-3"
             />
@@ -52,6 +56,7 @@ const Add = async () => {
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
             <input
+              required
               type="email"
               id="email"
               name="email"
@@ -61,6 +66,7 @@ const Add = async () => {
           <div className="flex flex-col">
             <label htmlFor="phone">Phone</label>
             <input
+              required
               type="text"
               id="phone"
               name="phone"

@@ -5,13 +5,12 @@ import { redirect } from "next/navigation";
 export async function addCustomer(formData: FormData) {
   const rawMembership = formData.get("membership") as string;
 
-  if (rawMembership === null) throw new Error("Membership is required");
-
-  const membership = await prisma.membership.findUnique({
-    where: { id: parseInt(rawMembership) },
-  });
-
-  if (membership === null) throw new Error("Membership not found");
+  const membership =
+    rawMembership !== ""
+      ? await prisma.membership.findUnique({
+          where: { id: parseInt(rawMembership) },
+        })
+      : null;
 
   const data = {
     firstName: formData.get("firstName") as string,
@@ -22,21 +21,22 @@ export async function addCustomer(formData: FormData) {
     imgUrl: formData.get("imgUrl") as string,
     createdAt: new Date(),
     updatedAt: new Date(),
-    memberships: {
-      connect: {
-        id: membership.id,
-      },
-    },
   };
-
-  if (data.firstName === "") throw new Error("First name is required");
-  if (data.lastName === "") throw new Error("Last name is required");
-  if (data.initials === "") throw new Error("Initials are required");
-  if (data.email === "") throw new Error("Email is required");
-  if (data.phone === "") throw new Error("Phone is required");
 
   const customer = await prisma.customer.create({
     data,
+  });
+
+  if (membership === null) return redirect(`/customers/${customer.id}`);
+
+  await prisma.customerMembership.create({
+    data: {
+      customerId: customer.id,
+      membershipId: membership.id,
+      remaining: membership.totalCount,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
   });
 
   redirect(`/customers/${customer.id}`);
