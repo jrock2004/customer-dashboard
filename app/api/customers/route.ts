@@ -14,10 +14,6 @@ export async function GET(request: Request) {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return Response.json({
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
     customers,
   });
 }
