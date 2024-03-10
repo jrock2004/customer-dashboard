@@ -79,7 +79,7 @@ const Customer = async ({ params }: CustomerProps) => {
         <div className="mt-20 flex justify-center">
           <Link
             className="flex border px-4 py-3 text-orange-400 hover:bg-orange-400 hover:text-white"
-            href="/CustomersClient"
+            href="/customers"
           >
             <ChevronLeftIcon className="mr-3 h-5 w-5 self-center text-inherit" />
             Back to Customers

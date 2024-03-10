@@ -27,9 +27,9 @@ export const MainNavClient = () => {
         <ChevronRightIcon className={iconEndClasses} />
       </Link>
       <Link
-        href="/CustomersClient"
+        href="/customers"
         className={`${linkClasses}${
-          pathname === "/CustomersClient" ? " font-semibold" : ""
+          pathname === "/customers" ? " font-semibold" : ""
         }`}
       >
         <UsersIcon className={iconStartClasses} />
