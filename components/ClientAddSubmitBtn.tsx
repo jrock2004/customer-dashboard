@@ -8,7 +8,7 @@ export const ClientAddSubmitBtn = () => {
   return (
     <button
       type="submit"
-      className="border bg-orange-500 p-3 text-white disabled:cursor-not-allowed disabled:bg-orange-500"
+      className="rounded-md border bg-primaryLight px-4 py-2 text-purple-300 hover:bg-primary hover:text-purple-300 disabled:cursor-not-allowed"
       disabled={pending}
     >
       <div className="flex">

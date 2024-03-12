@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { PageTitle } from "@/components/PageTitle";
 
 const Home = () => {
   return (
     <div className="flex flex-col">
-      <h1 className="text-xl font-semibold">Home</h1>
+      <PageTitle title="Home" />
       <p className="mb-6">
         This is a POC showing off what NextJS can do. This is not all features
         but some of them
       </p>
       <div>
-        <h2 className="mb-3 font-semibold">Good Sources</h2>
+        <PageTitle additionalClasses="mb-3" title="Good Sources" variant="h2" />
         <p className="mb-8">
           Here are some helpful places to get help in understanding NextJS and
           its coolness

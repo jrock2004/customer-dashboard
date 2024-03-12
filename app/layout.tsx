@@ -21,7 +21,7 @@ export default function RootLayout({
         className={`flex h-full flex-row bg-white text-slate-500 antialiased ${raleway.className}`}
       >
         <MainNavClient />
-        <main className="h-full w-full px-20 py-12">{children}</main>
+        <main className="h-full w-full p-5 md:px-20 md:py-12">{children}</main>
       </body>
     </html>
   );
