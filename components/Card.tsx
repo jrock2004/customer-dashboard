@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export const Card = ({ children }: CardProps) => {
   return (
-    <div className="rounded-md border border-orange-300 bg-white p-5 shadow-md">
+    <div className="rounded-sm border border-gray-300 bg-white p-5 shadow-lg">
       {children}
     </div>
   );

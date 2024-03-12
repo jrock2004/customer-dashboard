@@ -1,11 +1,12 @@
 import { AboutSection } from "@/components/AboutSection";
+import { PageTitle } from "@/components/PageTitle";
 
 const About = () => {
   const liClassNames = "pl-4";
 
   return (
     <div className="flex flex-col">
-      <h2 className="mb-3 text-xl font-semibold">About</h2>
+      <PageTitle additionalClasses="mb-3" title="About" variant="h1" />
       <p className="mb-8">
         Welcome to our Customer Dashboard! We&apos;re thrilled to have you on
         board and excited to provide you with an overview of what we&apos;re all
