@@ -1,5 +1,6 @@
 "use server";
 import prisma from "@/utils/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function addCustomer(formData: FormData) {
@@ -27,7 +28,11 @@ export async function addCustomer(formData: FormData) {
     data,
   });
 
-  if (membership === null) return redirect(`/customers/${customer.id}`);
+  if (membership === null) {
+    revalidatePath("/customers");
+
+    return redirect(`/customers/${customer.id}`);
+  }
 
   await prisma.customerMembership.create({
     data: {
@@ -39,5 +44,6 @@ export async function addCustomer(formData: FormData) {
     },
   });
 
+  revalidatePath("/customers");
   redirect(`/customers/${customer.id}`);
 }
